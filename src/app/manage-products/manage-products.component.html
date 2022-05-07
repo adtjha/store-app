@@ -1,0 +1,58 @@
+<style>
+  [type="file"]::file-selector-button {
+    border: 0;
+    padding: 8px 16px;
+    margin-right: 8px;
+    color: rgb(107, 117, 148);
+  }
+</style>
+
+<div class="w-full px-40 py-10 flex flex-col gap-8 justify-start items-start content-center">
+  <form action="#" class="grid grid-cols-2 gap-4 justify-start">
+    <div class="block">
+      <label class="text-gray-700" for="productName">Product Name</label>
+      <input class="mt-1 block w-full" type="text" name="productName" id="productName" placeholder="Enter product name" />
+    </div>
+    <div class="block">
+      <label class="text-gray-700" for="price">Price</label>
+      <input class="mt-1 block w-full" type="number" name="price" id="price" placeholder="Enter Price" />
+    </div>
+    <div class="block">
+      <label class="text-gray-700" for="productDesc">Product description (optional)</label>
+      <textarea class="mt-1 block w-full" name="productDesc" id="productDesc" cols="30" rows="3" placeholder="Enter description"></textarea>
+    </div>
+    <div class="block">
+      <label class="text-gray-700" for="productImage">Product image (optional)</label>
+      <input class="mt-1 block w-full border border-gray-500 text-gray-500" type="file" name="productImage" id="productImage" />
+    </div>
+  </form>
+  <button class="bg-sky-400 hover:bg-sky-500 text-white px-4 py-2 shadow-md">Add Product</button>
+  <table class="table-auto">
+    <thead>
+      <th class="border-b border-t border-gray-200 font-bold py-4 px-8 text-gray-800 text-left"></th>
+      <th class="border-b border-t border-gray-200 font-bold py-4 px-8 text-gray-800 text-left">Name</th>
+      <th class="border-b border-t border-gray-200 font-bold py-4 px-8 text-gray-800 text-left">Description</th>
+      <th class="border-b border-t border-gray-200 font-bold py-4 px-8 text-gray-800 text-left">Price</th>
+      <th class="border-b border-t border-gray-200 font-bold py-4 px-8 text-gray-800 text-left"></th>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="border-b border-slate-200 py-4 px-8">
+          <img class="" src="https://via.placeholder.com/64x64.png" alt="placeholder image" />
+        </td>
+        <td class="border-b border-slate-200 py-4 px-8">
+          <h1>COBOL 101 vintage</h1>
+        </td>
+        <td class="border-b border-slate-200 py-4 px-8">
+          <h1>Learn COBOL with this vintage gear.</h1>
+        </td>
+        <td class="border-b border-slate-200 py-4 px-8">
+          <h1>399:-SEK</h1>
+        </td>
+        <td class="border-b border-slate-200 py-4 px-8">
+          <button class="text-sky-500 hover:text-sky-600 hover:shadow-sm">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
