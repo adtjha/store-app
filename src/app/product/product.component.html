@@ -1,7 +1,10 @@
 <div class="bg-white shadow-md w-72 h-96 flex flex-col cursor-pointer">
-  <img class="" src="https://via.placeholder.com/288x288.png" alt="placeholder image" />
-  <div class="flex-grow flex flex-row justify-between items-center">
-    <h1 class="w-1/2 p-6 text-base">Cobol 101 vintage</h1>
-    <h3 class="w-1/2 p-6 text-2xl font-bold text-center">1995:-</h3>
+  <img class="" [src]="[product.imgUrl]" alt="placeholder image" />
+  <div class="w-full flex-grow flex flex-row justify-between items-center">
+    <h1 class="max-w-[160px] flex-shrink px-4 text-base flex flex-col gap-0.5">
+      <span class="font-semibold">{{ product.name }}</span>
+      <span class="truncate text-xs">{{ product.description }}</span>
+    </h1>
+    <h3 class="flex-grow px-4 text-2xl font-bold text-center">{{ product.price }}:-</h3>
   </div>
 </div>

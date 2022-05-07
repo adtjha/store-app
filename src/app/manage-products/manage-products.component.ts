@@ -3,14 +3,18 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-manage-products',
   templateUrl: './manage-products.component.html',
-  styles: [
-  ]
+  styles: [],
 })
 export class ManageProductsComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
+  addProduct = () => {
+    console.log('Add Product.');
+  };
 
+  removeProduct = () => {
+    console.log('Remove Product.');
+  };
 }
