@@ -34,23 +34,23 @@
         <th class="border-b border-t border-gray-200 font-bold py-1 lg:py-4 px-2 lg:px-8 text-gray-800 text-left">Name</th>
         <th class="border-b border-t border-gray-200 font-bold py-1 lg:py-4 px-2 lg:px-8 text-gray-800 text-left">Description</th>
         <th class="border-b border-t border-gray-200 font-bold py-1 lg:py-4 px-2 lg:px-8 text-gray-800 text-left">Price</th>
-        <th class="border-b border-t border-gray-200 font-bold py-1 lg:py-4 px-2 lg:px-8 text-gray-800 text-left"></th>
+        <th class="border-b border-t border-gray-200 font-bold py-1 lg:py-4 px-2 lg:px-8 text-gray-800 text-left sticky -right-[1px] bg-white"></th>
       </thead>
       <tbody>
         <tr *ngFor="let product of products | async">
-          <td class="border-b border-slate-200 py-1 lg:py-4 px-2 lg:px-4">
+          <td class="border-b border-gray-200 py-1 lg:py-4 px-2 lg:px-4">
             <img class="w-max aspect-square h-12 min-w-[3rem]" [src]="product.imgUrl" alt="placeholder image" />
           </td>
-          <td class="border-b border-slate-200 py-1 lg:py-4 px-2 lg:px-4">
+          <td class="border-b border-gray-200 py-1 lg:py-4 px-2 lg:px-4">
             <h1 class="w-max">{{ product.name }}</h1>
           </td>
-          <td class="border-b border-slate-200 py-1 lg:py-4 px-2 lg:px-4">
+          <td class="border-b border-gray-200 py-1 lg:py-4 px-2 lg:px-4">
             <h1>{{ product.description }}</h1>
           </td>
-          <td class="border-b border-slate-200 py-1 lg:py-4 px-2 lg:px-4">
+          <td class="border-b border-gray-200 py-1 lg:py-4 px-2 lg:px-4">
             <h1 class="w-max">{{ product.price }}:-SEK</h1>
           </td>
-          <td class="border-b border-slate-200 py-1 lg:py-4 px-2 lg:px-8">
+          <td class="border-b border-gray-200 py-1 lg:py-4 px-2 lg:px-8 sticky -right-[1px] bg-white">
             <button (click)="removeProduct(product.id)" class="text-sky-500 hover:text-sky-600 hover:shadow-sm">Remove</button>
           </td>
         </tr>
