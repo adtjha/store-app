@@ -1,9 +1,9 @@
 <div class="w-full px-4 sm:px-20 xl:px-40 pt-8 lg:pt-16 py-4 sm:py-10 flex flex-row flex-wrap gap-8 justify-start items-center content-center">
   <div class="bg-white shadow-md w-full sm:w-56 md:w-72 h-64 sm:h-64 md:h-96 flex flex-col cursor-pointer" *ngFor="let product of products | async">
-    <img class="min-h-[66.667%]" [src]="[product.imgUrl]" alt="placeholder image" />
-    <div class="w-full flex-grow flex flex-row justify-between items-center gap-2 md:gap-4 p-4">
-      <h1 class="text-base flex flex-col gap-0.5">
-        <span class="font-[500] break-words">{{ product.name }}</span>
+    <img class="min-h-[70%] object-cover object-top" [src]="[product.imgUrl]" alt="placeholder image" />
+    <div class="w-full flex-grow flex flex-row justify-between items-center gap-2 md:gap-4 py-4 px-8">
+      <h1 class="text-base font-[500] break-words">
+        {{ product.name }}
       </h1>
       <h3 class="flex-grow text-right text-2xl font-bold">{{ product.price }}:-</h3>
     </div>
