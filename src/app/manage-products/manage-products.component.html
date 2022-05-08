@@ -7,52 +7,54 @@
   }
 </style>
 
-<div class="w-full px-40 py-10 flex flex-col gap-8 justify-start items-start content-center">
-  <form action="#" class="grid grid-cols-2 gap-4 justify-start">
+<div class="w-full px-4 sm:px-20 xl:px-40 pt-16 py-4 sm:py-10 flex flex-col gap-8 justify-start items-start content-center">
+  <form [formGroup]="checkoutForm" class="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 justify-start">
     <div class="block">
-      <label class="text-gray-700" for="productName">Product Name</label>
-      <input class="mt-1 block w-full" type="text" name="productName" id="productName" placeholder="Enter product name" />
+      <label class="text-gray-700" for="name">Product Name</label>
+      <input class="mt-1 block w-full" type="text" formControlName="name" id="name" placeholder="Enter product name" />
     </div>
     <div class="block">
       <label class="text-gray-700" for="price">Price</label>
-      <input class="mt-1 block w-full" type="number" name="price" id="price" placeholder="Enter Price" />
+      <input class="mt-1 block w-full" type="number" formControlName="price" id="price" placeholder="Enter Price" />
     </div>
     <div class="block">
-      <label class="text-gray-700" for="productDesc">Product description (optional)</label>
-      <textarea class="mt-1 block w-full" name="productDesc" id="productDesc" cols="30" rows="3" placeholder="Enter description"></textarea>
+      <label class="text-gray-700" for="description">Product description (optional)</label>
+      <textarea class="mt-1 block w-full" formControlName="description" id="description" cols="30" rows="3" placeholder="Enter description"></textarea>
     </div>
     <div class="block">
-      <label class="text-gray-700" for="productImage">Product image (optional)</label>
-      <input class="mt-1 block w-full border border-gray-500 text-gray-500" type="file" name="productImage" id="productImage" />
+      <label class="text-gray-700" for="imgUrl">Product image (optional)</label>
+      <input class="mt-1 block w-full border border-gray-500 text-gray-500" type="file" (change)="onUploadChange($event)" id="imgUrl" />
     </div>
   </form>
   <button (click)="addProduct()" class="bg-sky-400 hover:bg-sky-500 text-white px-4 py-2 shadow-md">Add Product</button>
-  <table class="table-auto">
-    <thead>
-      <th class="border-b border-t border-gray-200 font-bold py-4 px-8 text-gray-800 text-left"></th>
-      <th class="border-b border-t border-gray-200 font-bold py-4 px-8 text-gray-800 text-left">Name</th>
-      <th class="border-b border-t border-gray-200 font-bold py-4 px-8 text-gray-800 text-left">Description</th>
-      <th class="border-b border-t border-gray-200 font-bold py-4 px-8 text-gray-800 text-left">Price</th>
-      <th class="border-b border-t border-gray-200 font-bold py-4 px-8 text-gray-800 text-left"></th>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="border-b border-slate-200 py-4 px-8">
-          <img class="" src="https://via.placeholder.com/64x64.png" alt="placeholder image" />
-        </td>
-        <td class="border-b border-slate-200 py-4 px-8">
-          <h1>COBOL 101 vintage</h1>
-        </td>
-        <td class="border-b border-slate-200 py-4 px-8">
-          <h1>Learn COBOL with this vintage gear.</h1>
-        </td>
-        <td class="border-b border-slate-200 py-4 px-8">
-          <h1>399:-SEK</h1>
-        </td>
-        <td class="border-b border-slate-200 py-4 px-8">
-          <button (click)="removeProduct()" class="text-sky-500 hover:text-sky-600 hover:shadow-sm">Remove</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="w-full overflow-x-scroll">
+    <table class="table-auto min-w-[720px]">
+      <thead>
+        <th class="border-b border-t border-gray-200 font-bold py-1 lg:py-4 px-2 lg:px-8 text-gray-800 text-left"></th>
+        <th class="border-b border-t border-gray-200 font-bold py-1 lg:py-4 px-2 lg:px-8 text-gray-800 text-left">Name</th>
+        <th class="border-b border-t border-gray-200 font-bold py-1 lg:py-4 px-2 lg:px-8 text-gray-800 text-left">Description</th>
+        <th class="border-b border-t border-gray-200 font-bold py-1 lg:py-4 px-2 lg:px-8 text-gray-800 text-left">Price</th>
+        <th class="border-b border-t border-gray-200 font-bold py-1 lg:py-4 px-2 lg:px-8 text-gray-800 text-left"></th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products | async">
+          <td class="border-b border-slate-200 py-1 lg:py-4 px-2 lg:px-8">
+            <img class="w-12 h-12" [src]="product.imgUrl" alt="placeholder image" />
+          </td>
+          <td class="border-b border-slate-200 py-1 lg:py-4 px-2 lg:px-8">
+            <h1>{{ product.name }}</h1>
+          </td>
+          <td class="border-b border-slate-200 py-1 lg:py-4 px-2 lg:px-8">
+            <h1>{{ product.description }}</h1>
+          </td>
+          <td class="border-b border-slate-200 py-1 lg:py-4 px-2 lg:px-8">
+            <h1>{{ product.price }}:-SEK</h1>
+          </td>
+          <td class="border-b border-slate-200 py-1 lg:py-4 px-2 lg:px-8">
+            <button (click)="removeProduct(product.id)" class="text-sky-500 hover:text-sky-600 hover:shadow-sm">Remove</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

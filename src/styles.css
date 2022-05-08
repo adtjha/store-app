@@ -8,3 +8,12 @@
     @apply border-b-4 border-sky-500 pb-3;
   }
 }
+
+@layer utilities {
+  .is-active {
+    border-bottom-width: 4px;
+    --tw-border-opacity: 1;
+    border-color: rgb(14 165 233 / var(--tw-border-opacity));
+    padding-bottom: 0.75rem !important;
+  }
+}

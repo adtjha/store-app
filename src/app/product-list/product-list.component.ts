@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { AppState } from '../state';
+import { Products } from '../state/products.model';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: [],
 })
 export class ProductListComponent implements OnInit {
+  products: Observable<Products>;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private store: Store<AppState>) {
+    this.products = this.store.select('products');
   }
 
+  ngOnInit(): void {}
 }
